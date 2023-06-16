@@ -1,0 +1,18 @@
+<div [formGroup]="form">
+  <app-date-time-picker
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    [minTime]="minTime"
+    [maxTime]="maxTime"
+    formControlName="startDate"
+    [mode]="'both'"
+    [datePlaceHolder]="'Start Date'"
+    [timePlaceHolder]="'Start Time'"
+  ></app-date-time-picker>
+</div>
+<br />
+<p>mindate: {{ minDate | date : "yyyy/MM/dd HH:mm" }}</p>
+<p>maxdate: {{ maxDate | date : "yyyy/MM/dd HH:mm" }}</p>
+<p>maxtime: {{ maxTime }}</p>
+<p>mintime: {{ minTime }}</p>
+<p>Form Validation : {{ this.form.valid | json }}</p>

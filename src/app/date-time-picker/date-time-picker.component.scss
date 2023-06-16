@@ -1,0 +1,64 @@
+.lib-date-time-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+  width: 300px;
+
+  .mat-form-field-wrapper {
+    padding: 0;
+    & > .mat-form-field-flex {
+      & > .mat-form-field-infix {
+        & > input {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  & > .date-input {
+    width: 60%;
+    & > .mat-form-field {
+      width: 100%;
+    }
+  }
+
+  & > .time-input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    column-gap: 2px;
+    width: 40%;
+
+    & > .buttons {
+      display: flex;
+      flex-direction: column;
+
+      position: absolute;
+      top: 22px;
+      cursor: pointer;
+      & > i {
+        z-index: 100;
+      }
+      &.left-buttons {
+        left: 8px;
+      }
+
+      &.right-buttons {
+        right: 8px;
+      }
+    }
+
+    .time-field {
+      width: 100%;
+    }
+  }
+
+  .show-only-date {
+    width: 100%;
+  }
+
+  .show-only-time {
+    width: 100%;
+  }
+}

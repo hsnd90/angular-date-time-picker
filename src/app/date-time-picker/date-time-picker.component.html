@@ -1,0 +1,70 @@
+<div class="lib-date-time-container">
+  <div
+    class="date-input"
+    *ngIf="mode == 'date' || mode == 'both'"
+    [ngClass]="{ 'show-only-date': mode == 'date' }"
+  >
+    <mat-form-field
+      appearance="outline"
+      class="date-container"
+      [ngClass]="{ 'mat-form-field-invalid': !controlIsValid }"
+    >
+      <mat-label>{{ datePlaceHolder }}</mat-label>
+      <input
+        [disabled]="isDisabled"
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="dateVal"
+        (ngModelChange)="onChangedDate($event)"
+        [min]="minDate"
+        [max]="maxDate"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div
+    class="time-input"
+    *ngIf="mode == 'time' || mode == 'both'"
+    [ngClass]="{ 'show-only-date': mode == 'time' }"
+  >
+    <mat-form-field
+      appearance="outline"
+      class="time-field"
+      [ngClass]="{ 'mat-form-field-invalid': !controlIsValid }"
+    >
+      <mat-label>{{ timePlaceHolder }}</mat-label>
+      <input
+        class="time-picker"
+        matInput
+        type="text"
+        [(ngModel)]="timeVal"
+        mask="Hh:m0"
+        [showMaskTyped]="true"
+        (ngModelChange)="onChangedTime($event)"
+        [dropSpecialCharacters]="false"
+        [disabled]="isDisabled"
+      />
+    </mat-form-field>
+    <div class="left-buttons buttons">
+      <i
+        class="fa-solid fa-caret-up"
+        (click)="onIncreasedHour()"
+        *ngIf="!isDisabled"
+      ></i>
+      <i
+        class="fa-solid fa-caret-down"
+        (click)="onDecreaseHour()"
+        *ngIf="!isDisabled"
+      ></i>
+    </div>
+    <div class="right-buttons buttons">
+      <i
+        class="fa-solid fa-caret-up"
+        (click)="onIncreasedMin()"
+        *ngIf="!isDisabled"
+      ></i>
+      <i class="fa-solid fa-caret-down" (click)="onDecreaseMin()"></i>
+    </div>
+  </div>
+</div>
